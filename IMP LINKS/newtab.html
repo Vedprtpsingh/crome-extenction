@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IMP LINKS - Manage Links</title>
+  <link rel="stylesheet" href="newtab.css" />
+</head>
+<body>
+  <div id="container">
+    <aside id="sidebar">
+      <h2>Sections</h2>
+      <ul id="sections-list"></ul>
+      <button id="add-section-btn">+ Add Section</button>
+    </aside>
+    <main id="main-content">
+      <header>
+        <input type="text" id="search-input" placeholder="Search links..." />
+        <select id="sort-select">
+          <option value="name-asc">Sort by Name (A-Z)</option>
+          <option value="name-desc">Sort by Name (Z-A)</option>
+          <option value="time-newest">Sort by Time (Recently Added)</option>
+          <option value="time-oldest">Sort by Time (Oldest First)</option>
+        </select>
+        <select id="filter-select">
+          <option value="all">All Links</option>
+          <option value="visited">Visited</option>
+          <option value="not-visited">Not Visited</option>
+        </select>
+      </header>
+      <section id="links-section">
+        <ul id="links-list"></ul>
+      </section>
+      <button id="add-link-btn">+ Add Link</button>
+    </main>
+  </div>
+
+  <!-- Add/Edit Link Modal -->
+  <div id="link-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modal-title">Add Link</h3>
+      <form id="link-form">
+        <label>
+          Title:
+          <input type="text" id="link-title" required />
+        </label>
+        <label>
+          URL:
+          <input type="url" id="link-url" required />
+        </label>
+        <label>
+          Section:
+          <select id="link-section"></select>
+        </label>
+        <div class="modal-buttons">
+          <button type="submit">Save</button>
+          <button type="button" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Section Modal -->
+  <div id="section-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Add Section</h3>
+      <form id="section-form">
+        <label>
+          Section Name:
+          <input type="text" id="section-name" required />
+        </label>
+        <div class="modal-buttons">
+          <button type="submit">Add</button>
+          <button type="button" id="section-cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="newtab.js"></script>
+</body>
+</html>

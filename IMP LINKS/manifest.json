@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "IMP LINKS",
+  "version": "1.0",
+  "description": "Manage categorized links with visited status and timestamps.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open IMP LINKS"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "commands": {
+    "add_current_page": {
+      "suggested_key": {
+        "default": "Alt+A"
+      },
+      "description": "Add current page URL to New ADDED section"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

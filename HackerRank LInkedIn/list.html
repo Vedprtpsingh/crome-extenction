@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HackerRank LinkedIn Profiles</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 100%;
+      padding: 15px;
+      background-color: #f9f9f9;
+      color: #333;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      max-height: 600px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    li {
+      margin: 8px 12px;
+      word-break: break-word;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s ease;
+      border-radius: 4px;
+    }
+    li:hover {
+      background-color: #f0f8ff;
+    }
+    a {
+      color: #0073b1;
+      text-decoration: none;
+      flex-grow: 1;
+      font-weight: 500;
+      font-size: 14px;
+      word-break: break-word;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    button {
+      margin-left: 10px;
+      padding: 4px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #3498db;
+      color: white;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #open-all-btn, #open-top5-btn {
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    #open-all-btn:hover, #open-top5-btn:hover {
+      background-color: #1e8449;
+    }
+  </style>
+</head>
+<body>
+  <h1>All LinkedIn Profiles</h1>
+  <div id="profile-counts" style="margin-bottom: 15px; font-weight: 600;">
+    Scanned Links: <span id="scanned-count">0</span> |
+    Duplicate Links: <span id="duplicate-count">0</span> |
+    Opened/Deleted Links: <span id="opened-deleted-count">0</span>
+  </div>
+  <button id="open-all-btn">Open All Links</button>
+  <button id="open-top5-btn" style="margin-left: 10px;">Open Top 4 Links</button>
+  <button id="copy-all-btn" style="margin-left: 10px;">Copy All Links</button>
+  <div style="display: flex; justify-content: space-between; gap: 10px;">
+    <div style="width: 50%;">
+      <h2>Scanned Links</h2>
+      <ul id="linkedin-list">
+        <li>Loading...</li>
+      </ul>
+    </div>
+    <div style="width: 50%;">
+      <h2>Opened/Deleted Links</h2>
+      <ul id="opened-deleted-list">
+        <li>No opened or deleted links yet.</li>
+      </ul>
+    </div>
+  </div>
+  <h2>Duplicate (Already Viewed) Links</h2>
+  <ul id="duplicate-links-list">
+    <li>No duplicate links yet.</li>
+  </ul>
+  <script src="list.js"></script>
+</body>
+</html>
