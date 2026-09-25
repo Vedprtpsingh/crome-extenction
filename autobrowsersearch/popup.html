@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoSearchRunner</title>
+  <style>
+    body { width: 350px; padding: 10px; font-family: Arial, sans-serif; }
+    button { padding: 8px; margin: 5px; }
+    #start, #stop { width: 45%; }
+    .consent { margin: 10px 0; }
+    .settings { margin: 10px 0; }
+    .phrases { max-height: 200px; overflow-y: auto; font-size: 12px; border: 1px solid #ccc; padding: 5px; }
+    .privacy { font-size: 11px; color: #666; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h3>AutoSearchRunner</h3>
+  <div class="consent">
+    <input type="checkbox" id="consent"> <label for="consent">I consent to run 30 automated searches in this tab</label>
+  </div>
+  <div class="settings">
+    <label for="searchEngine">Search Engine:</label>
+    <select id="searchEngine">
+      <option value="google">Google</option>
+      <option value="bing">Bing</option>
+      <option value="duckduckgo">DuckDuckGo</option>
+    </select>
+    <br>
+    <input type="checkbox" id="useCurrentTab" checked> <label for="useCurrentTab">Open searches in current tab (single tab)</label>
+  </div>
+  <button id="start">Start</button>
+  <button id="stop" disabled>Stop</button>
+  <h4>Search Phrases (30):</h4>
+  <div class="phrases" id="phrasesList"></div>
+  <progress id="progress" value="0" max="30" style="width: 100%;"></progress>
+  <div id="totalTime" style="margin-top: 10px; font-weight: bold;"></div>
+  <div class="privacy">
+    <strong>Privacy Notice:</strong> This extension performs searches by updating tab URLs only. No data is sent to external servers. All settings are stored locally. Searches are performed with randomized delays to respect site policies.
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

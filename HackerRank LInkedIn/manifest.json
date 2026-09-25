@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "HackerRank LinkedIn Extractor",
+  "version": "2.0",
+  "description": "Extract and manage LinkedIn profile links from HackerRank leaderboard profiles with advanced features.",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.hackerrank.com/*",
+    "https://www.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "LinkedIn Profile Extractor",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.hackerrank.com/challenges/*/leaderboard*",
+        "https://www.hackerrank.com/contests/*/leaderboard*",
+        "https://www.hackerrank.com/leaderboard*"
+      ],
+      "js": ["leaderboard.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["list.html", "progress.html", "list.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "minimum_chrome_version": "88"
+}

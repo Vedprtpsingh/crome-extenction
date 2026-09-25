@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<textarea id="input" style="width:100%;height:200px;">
+https://www.linkedin.com/in/username
+https://linkedin.com/in/username
+https://in.linkedin.com/in/username
+www.linkedin.com/in/username
+linkedin.com/in/username
+in.linkedin.com/in/username
+</textarea>
+<button onclick="test()">Test</button>
+<pre id="output"></pre>
+
+<script>
+function test() {
+  const text = document.getElementById('input').value;
+  const regex = /(?:https?:\/\/)?(?:www\.|in\.)?linkedin\.com\/in\/[a-zA-Z0-9\-_%]+/gi;
+  const matches = text.match(regex) || [];
+  
+  const normalized = matches.map(url => {
+    let cleanUrl = decodeURIComponent(url).replace(/["'}]+$/, '');
+    if (!cleanUrl.startsWith('http')) {
+      cleanUrl = 'https://' + cleanUrl;
+    }
+    return cleanUrl.replace(/^https?:\/\/in\./, 'https://www.');
+  });
+  
+  document.getElementById('output').textContent = 
+    'Found: ' + matches.length + ' URLs\n\n' +
+    'Original:\n' + matches.join('\n') + '\n\n' +
+    'Normalized:\n' + normalized.join('\n') + '\n\n' +
+    'Unique: ' + [...new Set(normalized)].length;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+- [x] Update manifest.json: Change name to AutoSearchRunner, update description, add storage permission, remove host_permissions
+- [x] Update popup.html: Add consent checkbox, Start/Stop buttons, list of 30 phrases, toggle for single tab, select for search engine
+- [x] Update popup.js: Handle UI events, generate/display 30 phrases, load/save settings, send start/stop messages
+- [x] Update background.js: Listen for start/stop, perform sequential URL updates with delays, handle stop flag
